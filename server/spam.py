@@ -10,7 +10,6 @@ def send(id:str,content:str):
       "User-Agent": "Mozilla/5.0 (iPad; CPU OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.5 Mobile/15E148 Safari/604.1",
       "Content-Type":"application/x-www-form-urlencoded"
     }
-    #スパムする回数
     
     
     

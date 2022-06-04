@@ -12,8 +12,53 @@ import json
 import os
 import math
 
-
 import time
+
+
+def kanryo(text,title):
+    from tkinter import ttk
+    import tkinter
+    root = tkinter.Tk()
+    root.title(title)
+    root.geometry("300x100")
+    # Frame as Widget Container
+    frame1 = ttk.Frame(
+        root,
+        padding=10)
+    frame1.grid()
+
+    # Label 1
+
+
+    label1 = ttk.Label(
+        frame1)
+    label1.grid(row=0, column=0)
+
+    # Label 2
+    label2 = ttk.Label(
+        frame1,
+        text=f"{text}",
+        width=40,
+        anchor=W,
+        padding=(20))
+    label2.grid(row=0, column=1)
+
+    # ボタン
+    button1 = ttk.Button(
+        frame1,
+        text='OK',
+        command=lambda: root.destroy())
+    button1.grid(row=1, column=0, columnspan=2)
+    root.mainloop()
+    #button1.place(x = 10, y = 45)
+    #button1.bind(lambda: root.destroy())
+
+
+
+
+
+
+
 
 
 
@@ -42,15 +87,19 @@ content_entry = ttk.Entry(
       width=20)
 content_entry.place(x = 170, y = 100)
 
-
 def run_msg():
   kurikaeshi=0
-  while kurikaeshi!=math.floor(int(vl.get())):
+  whi_data=math.floor(int(vl.get()))
+  if vl.get()==0.0:
+    whi_data=1
+  while kurikaeshi!=whi_data:
     status=spam.send(id_entry.get(),content_entry.get())
     time.sleep(0.3)
     kurikaeshi+=1
     if status!="成功":
       return
+  kanryo("完了しました。","Spammer Developed by Kodai.")
+  
 
 def run_thread():
   t = Thread(target=run_msg)

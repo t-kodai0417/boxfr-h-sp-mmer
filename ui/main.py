@@ -59,9 +59,12 @@ def kanryo(text,title):
 
 
 
+import sys
 
-
-
+def resource_path(relative_path):
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
 
 
 
@@ -71,6 +74,7 @@ mein = tk.Tk()
 mein.title("BoxFreshSpammer Developed by Kodai.")
 mein.configure(background='white')
 mein.geometry("450x250")
+mein.iconbitmap(default=resource_path("aaa.ico"))
 #mein.iconbitmap('main.ico')
 id_stringvar = StringVar()
 id_entry = ttk.Entry(
